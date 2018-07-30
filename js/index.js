@@ -10,6 +10,11 @@ window.onload = function() {
 	}
 
 function home() {
+	const path = "/"
+	const title = "Inicio"
+	const description = ""
+	const home_button = "active"
+	const experience_button = "button_navbar"
 	var home_tab = `<div class="col-lg-4 col-xs-12">
 	<div class="card separate_card_left">
 		<div class="row center-xs">
@@ -99,25 +104,23 @@ function home() {
 			</div>
 		</div>
 	</div>`
-	const title = "Inicio"
-	const description = ""
-	const home_button = "active"
-	const experience_button = "button_navbar"
 
-	setNewValues(title, description, home_button, experience_button, home_tab)
+	setNewValues(path, title, description, home_button, experience_button, home_tab)
 }
 
 function experience() {
-	const experience_tab = ""
+	const path = "/experience"
 	const title = "Experiencia"
 	const description = ""
 	const home_button = "button_navbar"
 	const experience_button = "active"
+	const experience_tab = ""
 
-	setNewValues(title, description, home_button, experience_button, experience_tab)
+	setNewValues(path, title, description, home_button, experience_button, experience_tab)
 }
 
-function setNewValues(title, description, home_button, experience_button, content) {
+function setNewValues(path, title, description, home_button, experience_button, content) {
+	history.pushState(null, "", path)
 	document.title = `Modesta Díaz | ${title}`
 	document.getElementById("description").setAttribute("content", description)
 	document.getElementById("home_button").classList.remove(experience_button)
