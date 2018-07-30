@@ -13,7 +13,6 @@ header ul {
   padding: 0;
   overflow: hidden;
   background: linear-gradient(to right, rgb(137, 196, 82) 0%, rgb(126, 194, 62) 45%, rgb(144, 175, 57) 100%);
-
 }
 header ul li {
   float: right;
@@ -21,10 +20,11 @@ header ul li {
 header ul li a {
   display: block;
   padding: 0.5em;
-  margin: 1em;
   border: 1px solid;
   border-radius: 4px;
   transition: 0.5s;
+  margin-top: 1em;
+  margin-right: 1em;
 }
 header ul li::after {
   display: none;
@@ -33,7 +33,11 @@ header ul li i {
   display: block;
   margin: 0.5em;
 }
-header ul li a:hover {
+header ul li .button_navbar:hover {
+  background-color: #fff;
+  color: rgb(144, 175, 57) !important;
+}
+header ul li .active {
   background-color: #fff;
   color: rgb(144, 175, 57) !important;
 }
@@ -51,6 +55,9 @@ ul li:after {
 }
 ul li:last-child::after {
   display: none;
+}
+.cards_in_card .card:last-child {
+  margin-bottom: 0 !important;
 }
 .row {
   margin-left: 0 !important;
@@ -106,6 +113,10 @@ ul li:last-child::after {
 .contact_description {
   margin-top: 0.5em;
 }
+.contact_name {
+  font-weight: bold;
+  color: #666;
+}
 .icon {
   width: 1.7em;
 }
@@ -127,7 +138,7 @@ ul li:last-child::after {
     margin-right: 0.5em;
   }
   .adjust_presentation {
-    margin-top: -4.25em;
+    margin-top: -3.25em;
   }
   .in_mobile {
     display: none;
