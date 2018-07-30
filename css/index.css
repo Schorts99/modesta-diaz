@@ -166,4 +166,30 @@ ul li:last-child::after {
   .adjust_presentation {
     margin-top: -4em;
   }
+  .sidebar {
+  position: fixed;
+  height: 100%;
+  width: 70%;
+  right: 0;
+  background-color: #fff;
+  top: 0;
+  transition: 1s;
+  right: -100%;
+  }
+  .sidebar_open {
+    right: 0;
+  }
+  .sidebar_item {
+    font-size: 2em;
+    padding: 0.3em;
+  }
+  .sidebar_content {
+    margin: 1em;
+  }
+  .block_overflow {
+    overflow: hidden;
+  }
+  .allow_overflow {
+    overflow: auto;
+  }
 }

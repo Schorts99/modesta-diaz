@@ -1,3 +1,5 @@
+const tab_names = ["home_button", "experience_button", "education_button"]
+
 window.onload = function() {
 		home()
 	}
@@ -5,6 +7,7 @@ window.onload = function() {
 function home() {
 	const home_button = "active"
 	const experience_button = "button_navbar"
+	const education_button = "button_navbar"
 	var home_tab = `<div class="col-lg-4 col-xs-12">
 	<div class="card separate_card_left">
 		<div class="row center-xs">
@@ -95,12 +98,10 @@ function home() {
 		</div>
 	</div>`
 
-	setNewValues(home_button, experience_button, home_tab)
+	setNewValues(home_tab, "home_button")
 }
 
 function experience() {
-	const home_button = "button_navbar"
-	const experience_button = "active"
 	const experience_tab = `<div class="col-lg-4 col-xs-12">
 			<div class="card separate_card_left">
 				<div class="row center-xs">
@@ -202,13 +203,53 @@ function experience() {
 			</div>
 		</div>`
 
-	setNewValues(home_button, experience_button, experience_tab)
+	setNewValues(experience_tab, "experience_button")
 }
 
-function setNewValues(home_button, experience_button, content) {
-	document.getElementById("home_button").classList.remove(experience_button)
-	document.getElementById("experience_button").classList.remove(home_button)
-	document.getElementById("home_button").classList.add(home_button)
-	document.getElementById("experience_button").classList.add(experience_button)
+function education() {
+	const education_tab = ``
+
+	setNewValues(education_tab, "education_button")
+}
+
+function setNewValues(content, name) {
+	closeSidebar()
+	removeSelection()
+	activeTab(name)
 	document.getElementById("content").innerHTML = content
 }
+
+function removeSelection() {
+	for (var i = 0; i<tab_names.length; i++) {
+		document.getElementById(tab_names[i]).classList.remove("active")
+		document.getElementById(tab_names[i]).classList.remove("button_navbar")
+	}
+	
+}
+
+function activeTab(name) {
+	var class_to_add
+
+	for (var i = 0; i<tab_names.length; i++) {
+		tab_names[i] === name ? class_to_add = "active" : class_to_add = "button_navbar"
+		document.getElementById(tab_names[i]).classList.add(class_to_add)
+	}
+}
+
+function openSidebar() {
+	document.getElementById("sidebar").classList.add("sidebar_open")
+	document.getElementById("sidebar").classList.add("allow_overflow");
+	document.getElementById("body").classList.add("block_overflow");
+}
+
+function closeSidebar() {
+	document.getElementById("sidebar").classList.remove("sidebar_open")
+	document.getElementById("sidebar").classList.remove("allow_overflow");
+	document.getElementById("body").classList.remove("block_overflow");
+}
+
+function cancelBubble(e) {
+    var evt = e ? e:window.event;
+    if (evt.stopPropagation)    evt.stopPropagation();
+    if (evt.cancelBubble!=null) evt.cancelBubble = true;
+ }

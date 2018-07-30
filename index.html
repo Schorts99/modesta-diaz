@@ -6,7 +6,7 @@
 	<title>Modesta Díaz</title>
 	<meta id="description" name="description" content=""/>
 	<meta name="keywords" content="Desarrollo sustentable, Doctora en desarrollo sustentable, Maestría, Desarrollo regional,
-		Ecología, Proyectos, Gestión de proyectos, Elaboración de proyectos, Doctorado, Instituto tecnológico, Experiencia laboral, Áreas verdes, Universidad, Universidad La Salle, Universidad La Salle Oaxaca, Instituto Tecnológico de Oaxaca, Instituto Tecnológico, Posgrado, Desarrollo tecnológico, Instituto Nacional de Estadística y Geografía, INEGI"/>
+		Ecología, Proyectos, Gestión de proyectos, Elaboración de proyectos, Doctorado, Instituto tecnológico, Experiencia laboral, Áreas verdes, Universidad, Universidad La Salle, Universidad La Salle Oaxaca, Instituto Tecnológico de Oaxaca, Instituto Tecnológico, Posgrado, Desarrollo tecnológico, Instituto Nacional de Estadística y Geografía, INEGI, Encuestas"/>
 	<link rel="shortcut icon" href="./images/favicon.png" type="image/x-icon">
 	<link rel="icon" href="./images/favicon.png" type="image/x-icon">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,15 +16,23 @@
 	<link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
 	<script src=./js/index.js type="text/javascript"></script>
 </head>
-<body>
+<body id="body">
 	<header>
 		<ul>
+			<li class="in_desktop"><a class="white_text" id="education_button" onclick="education()">Educación</a></li>
 			<li class="in_desktop"><a id="experience_button" onclick="experience()" class="white_text">Experiencia</a></li>
 			<li class="in_desktop"><a id="home_button" onclick="home()" class="white_text">Inicio</a></li>
-			<li class="in_mobile"><i class="fas fa-bars white_text fa-2x"></i></li>
+			<li class="in_mobile"><i class="fas fa-bars white_text fa-2x" onclick="openSidebar()"></i></li>
 		</ul>
 	</header>
-	<div class="row profile_presentation middle-xs center-xs start-lg adjust_presentation">
+	<div id="sidebar" class="sidebar in_mobile" onclick="(e) => cancelBubble(e)">
+		<ul class="sidebar_content">
+			<li class="sidebar_item" onclick="home()">Inicio</li>
+			<li class="sidebar_item" onclick="experience()">Experiencia</li>
+			<li class="sidebar_item" onclick="education()">Educación</li>
+		</ul>
+	</div>
+	<div class="row profile_presentation middle-xs center-xs start-lg adjust_presentation" onclick="closeSidebar()">
 		<div class="col-lg-2 col-xs-12">
 			<img src="https://media.licdn.com/dms/image/C4E03AQGY0scitJhhLw/profile-displayphoto-shrink_800_800/0?e=1538611200&v=beta&t=ZzKVO5dDouI8qCRKAXYccS7cnVzstoGrLwNIIDz9rB8" alt="Modesta Díaz" class="profile_pic">
 		</div>
@@ -57,7 +65,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="content" class="row section_muted">
+	<div id="content" class="row section_muted" onclick="closeSidebar()">
 		
 	</div>
 </body>
