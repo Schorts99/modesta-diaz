@@ -8,6 +8,7 @@
 }
 a {
   text-decoration: none;
+  color: currentColor;
 }
 header ul {
   margin: 0;
@@ -131,6 +132,15 @@ ul li:last-child::after {
 .small_top_bottom_margin {
   margin-top: 1.5em;
   margin-bottom: 0.5em;
+}
+.icon_la_salle {
+  width: 13em;
+}
+.icon_ito {
+  width: 8em;
+}
+.icon_inegi {
+  width: 7.5em;
 }
 @media(min-width: 768px) {
   .adjust_contact_information {

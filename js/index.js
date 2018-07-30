@@ -1,18 +1,8 @@
 window.onload = function() {
-		var path = window.location.pathname
-
-		switch(path) {
-			case "/": home()
-					  break;
-		  	case "/experience": experience()
-		  						break;
-		}
+		home()
 	}
 
 function home() {
-	const path = "/"
-	const title = "Inicio"
-	const description = ""
 	const home_button = "active"
 	const experience_button = "button_navbar"
 	var home_tab = `<div class="col-lg-4 col-xs-12">
@@ -105,24 +95,117 @@ function home() {
 		</div>
 	</div>`
 
-	setNewValues(path, title, description, home_button, experience_button, home_tab)
+	setNewValues(home_button, experience_button, home_tab)
 }
 
 function experience() {
-	const path = "/experience"
-	const title = "Experiencia"
-	const description = ""
 	const home_button = "button_navbar"
 	const experience_button = "active"
-	const experience_tab = ""
+	const experience_tab = `<div class="col-lg-4 col-xs-12">
+			<div class="card separate_card_left">
+				<div class="row center-xs">
+					<div class="col-xs-12">
+						<img src="./images/la-salle.png" alt="Universidad La Salle Oaxaca" class="icon_la_salle">
+					</div>
+				</div>
+				<h2 class="text_align_center card-title"><a href="http://www.ulsaoaxaca.edu.mx/" target="_blank">Universidad La Salle Oaxaca</a></h2>
+				<div class="card-items cards_in_card">
+					<div class="card">
+						<div class="row middle-xs center-xs">
+							<div class="col-xs-12">
+								<h3>Maestría en educación superior</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 small_top_bottom_margin">
+								<p>Docente en la materia de Métodos Estadísticos para la Investigación Educativa</p>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="row middle-xs center-xs">
+							<div class="col-xs-12">
+								<h3>Maestría en Arquitectura Sustentable</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 small_top_bottom_margin">
+								<p>Docente en la materias Taller de Proyecto de Tesis e Investigación Aplicada al Diseño</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-xs-12">
+			<div class="card">
+				<div class="row center-xs">
+					<div class="col-xs-12">
+						<img src="./images/ito.png" alt="Instituto Tecnológico de Oaxaca" class="icon_ito">
+					</div>
+				</div>
+				<h2 class="text_align_center card-title">Instituto Tecnológico de Oaxaca</h2>
+				<div class="card-items cards_in_card">
+					<div class="card">
+						<div class="row middle-xs center-xs">
+							<div class="col-xs-12">
+								<h3>Ingeniería en Gestión Empresarial y Licenciatura en Administración</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 small_top_bottom_margin">
+								<p>Docente en las materias de Desarrollo organizacional, Habilidades directivas II,
+									Administración fnanciera e Ingeniería económica. Administración de la calidad (verano).
+									Formulación y evaluación de proyectos, Taller de investigación, Sistemas de información de mercadotecnia, Matemáticas fnancieras</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-4 col-xs-12">
+			<div class="card separate_card_right">
+				<div class="row center-xs middle-xs">
+					<div class="col-xs-12">
+						<img src="./images/inegi.png" alt="Instituto Nacional de Estadística y Geografía" class="icon_inegi">
+					</div>
+				</div>
+				<h2 class="text_align_center card-title">Instituto Nacional de Estadística y Geografía</h2>
+				<div class="card-items cards_in_card">
+					<div class="card">
+						<div class="row middle-xs center-xs">
+							<div class="col-xs-12">
+								<h3>Responsable de Explotación de la Encuesta Intercensal 2015</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-xs-12 small_top_bottom_margin">
+								<p>Capacitar a los analistas de explotación. Monitorear la revisión de las cifras refejadas
+									en los productos de explotación. Precisar a ofcinas centrales las inconsistencias detectadas en las	diferentes etapas del proceso de explotación. Rectifcar la revisión de la información agrupada de acuerdo a los diferentes niveles de desagregación geográfca de los productos a publicarse para la divulgación de resultados y concentrar los documentos para la memoria de la etapa de explotación de la información con la fnalidad de documentar los procesos</p>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="row middle-xs center-xs">
+							<div class="col-xs-12">
+								<h3>Responsable de Validación de la Encuesta Intercensal 2015</h3>
+							</div>
+						</div>
+						<diw class="row">
+							<div class="col-xs-12 small_top_bottom_margin">
+								<p> Capacitar a los analistas de validación. Rectifcar la revisión de los reportes del
+									sistema de validación con el objeto de dar seguimiento al fujo de la información a las siguientes etapas de tratamiento de la información. Articular actividades que confrmen la correcta aplicación del proceso de validación mediante la revisión de informes sobre el análisis de resultados y concentrar la documentación para la memoria y evaluación de la etapa de validación de la información con la fnalidad de documentar los procesos de Censos y Encuestas	relacionadas a éstos</p>
+							</div>
+						</diw>
+					</div>
+				</div>
+			</div>
+		</div>`
 
-	setNewValues(path, title, description, home_button, experience_button, experience_tab)
+	setNewValues(home_button, experience_button, experience_tab)
 }
 
-function setNewValues(path, title, description, home_button, experience_button, content) {
-	history.pushState(null, "", path)
-	document.title = `Modesta Díaz | ${title}`
-	document.getElementById("description").setAttribute("content", description)
+function setNewValues(home_button, experience_button, content) {
 	document.getElementById("home_button").classList.remove(experience_button)
 	document.getElementById("experience_button").classList.remove(home_button)
 	document.getElementById("home_button").classList.add(home_button)
