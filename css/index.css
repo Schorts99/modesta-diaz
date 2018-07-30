@@ -2,8 +2,40 @@
   padding: 0;
   margin: 0;
 }
+*::-webkit-scrollbar {
+  display: none;
+}
 a {
   text-decoration: none;
+}
+header ul {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: linear-gradient(to right, rgb(137, 196, 82) 0%, rgb(126, 194, 62) 45%, rgb(144, 175, 57) 100%);
+
+}
+header ul li {
+  float: right;
+}
+header ul li a {
+  display: block;
+  padding: 0.5em;
+  margin: 1em;
+  border: 1px solid;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+header ul li::after {
+  display: none;
+}
+header ul li i {
+  display: block;
+  margin: 0.5em;
+}
+header ul li a:hover {
+  background-color: #fff;
+  color: rgb(144, 175, 57) !important;
 }
 ul {
   list-style-type: none;
@@ -17,12 +49,15 @@ ul li:after {
   margin-bottom: 0.5em;
   background-color: #666;
 }
+ul li:last-child::after {
+  display: none;
+}
 .row {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
 .profile_presentation {
-  background: linear-gradient(to right, rgb(137, 196, 82) 0%, rgb(126, 194, 62) 45%, rgba(210,255,82,1) 100%);
+  background: linear-gradient(to right, rgb(137, 196, 82) 0%, rgb(126, 194, 62) 45%, rgb(144, 175, 57) 100%);
   padding: 1em 2em;
 }
 .profile_pic {
@@ -60,6 +95,9 @@ ul li:after {
   padding: 1em;
   text-align: justify;
 }
+.cards_in_card {
+  padding: 0.5em !important;
+}
 .contact_pic {
   border-radius: 50%;
   width: 4em;
@@ -78,7 +116,7 @@ ul li:after {
   margin-top: 1em;
   margin-bottom: 0.5em;
 }
-@media(min-width: 75em) {
+@media(min-width: 768px) {
   .adjust_contact_information {
     margin-left: -1.5em;
   }
@@ -87,5 +125,19 @@ ul li:after {
   }
   .separate_card_right {
     margin-right: 0.5em;
+  }
+  .adjust_presentation {
+    margin-top: -4.25em;
+  }
+  .in_mobile {
+    display: none;
+  }
+}
+@media(max-width: 768px) {
+  .in_desktop {
+    display: none;
+  }
+  .adjust_presentation {
+    margin-top: -4em;
   }
 }
