@@ -26,6 +26,7 @@ header ul li a {
   transition: 0.5s;
   margin-top: 1em;
   margin-right: 1em;
+  cursor: pointer;
 }
 header ul li::after {
   display: none;
@@ -81,6 +82,9 @@ ul li:last-child::after {
 .adjust_contact_title {
   margin-top: -0.2em;
   margin-bottom: 0.5em;
+}
+.adjust_spss_icon {
+  margin-right: 0.8em;
 }
 .text_align_center {
   text-align: center;
