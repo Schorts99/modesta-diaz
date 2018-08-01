@@ -238,14 +238,16 @@ function activeTab(name) {
 
 function openSidebar() {
 	document.getElementById("sidebar").classList.add("sidebar_open")
-	document.getElementById("sidebar").classList.add("allow_overflow");
-	document.getElementById("body").classList.add("block_overflow");
+	document.getElementById("sidebar").classList.add("allow_overflow")
+	document.getElementById("body").classList.add("block_overflow")
+	document.getElementById("sidebar_hide").classList.add("sidebar_hide_open")
 }
 
 function closeSidebar() {
 	document.getElementById("sidebar").classList.remove("sidebar_open")
-	document.getElementById("sidebar").classList.remove("allow_overflow");
-	document.getElementById("body").classList.remove("block_overflow");
+	document.getElementById("sidebar").classList.remove("allow_overflow")
+	document.getElementById("body").classList.remove("block_overflow")
+	document.getElementById("sidebar_hide").classList.remove("sidebar_hide_open")
 }
 
 function cancelBubble(e) {

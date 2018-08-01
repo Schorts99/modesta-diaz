@@ -25,6 +25,7 @@
 			<li class="in_mobile"><i class="fas fa-bars white_text fa-2x" onclick="openSidebar()"></i></li>
 		</ul>
 	</header>
+	<div id="sidebar_hide" class="sidebar_hide" onclick="closeSidebar()"></div>
 	<div id="sidebar" class="sidebar in_mobile" onclick="(e) => cancelBubble(e)">
 		<ul class="sidebar_content">
 			<li class="sidebar_item" onclick="home()">Inicio</li>
@@ -32,7 +33,7 @@
 			<li class="sidebar_item" onclick="education()">Educación</li>
 		</ul>
 	</div>
-	<div class="row profile_presentation middle-xs center-xs start-lg adjust_presentation" onclick="closeSidebar()">
+	<div class="row profile_presentation middle-xs center-xs start-lg adjust_presentation">
 		<div class="col-lg-2 col-xs-12">
 			<img src="https://media.licdn.com/dms/image/C4E03AQGY0scitJhhLw/profile-displayphoto-shrink_800_800/0?e=1538611200&v=beta&t=ZzKVO5dDouI8qCRKAXYccS7cnVzstoGrLwNIIDz9rB8" alt="Modesta Díaz" class="profile_pic">
 		</div>
@@ -65,7 +66,7 @@
 			</div>
 		</div>
 	</div>
-	<div id="content" class="row section_muted" onclick="closeSidebar()">
+	<div id="content" class="row section_muted">
 		
 	</div>
 </body>
