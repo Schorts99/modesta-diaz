@@ -197,6 +197,7 @@ ul li:last-child::after {
   }
   .sidebar_content {
     margin: 1em;
+    color: #666;
   }
   .block_overflow {
     overflow: hidden;

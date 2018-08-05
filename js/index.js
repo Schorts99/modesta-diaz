@@ -1,14 +1,57 @@
 const tab_names = ["home_button", "experience_button", "education_button"]
 
-window.onload = function() {
-		home()
-	}
+const account_presentation = `<header>
+		<ul>
+			<li class="in_desktop"><a onclick="changeContent(education_tab, 'education_button', '/education', 'Educación')" class="white_text" id="education_button">Educación</a></li>
+			<li class="in_desktop"><a onclick="changeContent(experience_tab, 'experience_button', '/experience', 'Experiencia')" id="experience_button" class="white_text">Experiencia</a></li>
+			<li class="in_desktop"><a onclick="changeContent(home_tab, 'home_button', '/', 'Inicio')" id="home_button" class="white_text">Inicio</a></li>
+			<li class="in_mobile"><i class="fas fa-bars white_text fa-2x" onclick="openSidebar()"></i></li>
+		</ul>
+	</header>
+	<div id="sidebar_hide" class="sidebar_hide" onclick="closeSidebar()"></div>
+	<div id="sidebar" class="sidebar in_mobile" onclick="(e) => cancelBubble(e)">
+		<ul class="sidebar_content">
+			<li onclick="changeContent(home_tab, 'home_button', '/', 'Inicio')" class="sidebar_item">Inicio</li>
+			<li onclick="changeContent(experience_tab, 'experience_button', '/experience', 'Experiencia')" class="sidebar_item">Experiencia</li>
+			<li onclick="changeContent(education_tab, 'education_button', '/education', 'educación')" class="sidebar_item">Educación</li>
+		</ul>
+	</div>
+	<div class="row profile_presentation middle-xs center-xs start-lg adjust_presentation">
+		<div class="col-lg-2 col-xs-12">
+			<img src="https://media.licdn.com/dms/image/C4E03AQGY0scitJhhLw/profile-displayphoto-shrink_800_800/0?e=1538611200&v=beta&t=ZzKVO5dDouI8qCRKAXYccS7cnVzstoGrLwNIIDz9rB8" alt="Modesta Díaz" class="profile_pic">
+		</div>
+		<div class="col-lg-10 col-xs-12 adjust_contact_information">
+			<div class="row center-xs">
+				<div class="col-lg-12 start-lg">
+					<h1 class="white_text">Modesta Díaz</h1>
+					<h3 class="white_text adjust_contact_title">Doctora en desarrollo sustentable</h3>
+					<div class="row">
+						<div class="col-xs-12">
+							<a href="tel:+529514082238" class="white_text"><i class="fas fa-mobile adjust_contact_icon"></i>951 292 1506</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<a href="mailto:sedom.zaid2@gmail.com" class="white_text"><i class="far fa-envelope adjust_contact_icon"></i>sedom.zaid2@gmail.com</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<a href="https://www.linkedin.com/in/modesta-diaz-diaz-1b5b592b/" target="_blank" class="white_text"><i class="fab fa-linkedin adjust_contact_icon"></i>linkedin.com/in/modesta-diaz-diaz-1b5b592b/</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-12">
+							<a href="https://twitter.com/zaidmodes" target="_blank" class="white_text"><i class="fab fa-twitter-square adjust_contact_icon"></i>twitter.com/zaidmodes</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>`
 
-function home() {
-	const home_button = "active"
-	const experience_button = "button_navbar"
-	const education_button = "button_navbar"
-	var home_tab = `<div class="col-lg-4 col-xs-12">
+const home_tab = `<div id="content" class="row section_muted">
+	<div class="col-lg-4 col-xs-12">
 	<div class="card separate_card_left">
 		<div class="row center-xs">
 				<div class="col-xs-12">
@@ -96,13 +139,11 @@ function home() {
 				</ul>
 			</div>
 		</div>
-	</div>`
+	</div>
+</div>`
 
-	setNewValues(home_tab, "home_button")
-}
-
-function experience() {
-	const experience_tab = `<div class="col-lg-4 col-xs-12">
+const experience_tab = `<div id="content" class="row section_muted">
+		<div class="col-lg-4 col-xs-12">
 			<div class="card separate_card_left">
 				<div class="row center-xs">
 					<div class="col-xs-12">
@@ -201,40 +242,31 @@ function experience() {
 					</div>
 				</div>
 			</div>
-		</div>`
+		</div>
+	</div>`
 
-	setNewValues(experience_tab, "experience_button")
-}
+const education_tab = `<div id="content" class="row section_muted">
+	</div>`
 
-function education() {
-	const education_tab = ``
+const not_found_tab = `<div id="content" class="row section_muted middle-xs center-xs">
+		<h2>Página no encontrada</h2>
+	</div>`
 
-	setNewValues(education_tab, "education_button")
-}
-
-function setNewValues(content, name) {
-	closeSidebar()
-	removeSelection()
-	activeTab(name)
-	document.getElementById("content").innerHTML = content
-}
-
-function removeSelection() {
-	for (var i = 0; i<tab_names.length; i++) {
-		document.getElementById(tab_names[i]).classList.remove("active")
-		document.getElementById(tab_names[i]).classList.remove("button_navbar")
+window.onload = function() {
+		switch(window.location.pathname) {
+			case "/": setContent(home_tab, "home_button", "Inicio")
+					  break;
+			case "/experience": 
+			case "/experience.html":
+									setContent(experience_tab, "experience_button", "Experiencia")
+									break;
+			case "/education":
+			case "/education.html":
+									setContent(education_tab, "education_button", "Educación")
+								   	break;
+		   	default: setContent(not_found_tab, "", "Error")
+		}
 	}
-	
-}
-
-function activeTab(name) {
-	var class_to_add
-
-	for (var i = 0; i<tab_names.length; i++) {
-		tab_names[i] === name ? class_to_add = "active" : class_to_add = "button_navbar"
-		document.getElementById(tab_names[i]).classList.add(class_to_add)
-	}
-}
 
 function openSidebar() {
 	document.getElementById("sidebar").classList.add("sidebar_open")
@@ -255,3 +287,39 @@ function cancelBubble(e) {
     if (evt.stopPropagation)    evt.stopPropagation();
     if (evt.cancelBubble!=null) evt.cancelBubble = true;
  }
+
+ function setContent(content, active_button, title) {
+ 	document.title = `Modesta Díaz | ${title}`
+ 	document.getElementById("body").innerHTML = account_presentation + content
+ 	activeTab(active_button)
+ }
+
+ function changeContent(content, active_button, path, title) {
+ 	document.title = `Modesta Díaz | ${title}`
+ 	history.pushState(null, "", path)
+ 	closeSidebar()
+ 	activeTab(active_button)
+ 	document.getElementById("content").innerHTML = content
+
+ 	if(window.matchMedia("(max-width: 768px)").matches) {
+ 		window.scrollTo(0, 338)
+ 	}
+ }
+
+ function removeActiveTab() {
+ 	for (var i = 0; i<tab_names.length; i++) {
+		document.getElementById(tab_names[i]).classList.remove("button_navbar")
+		document.getElementById(tab_names[i]).classList.remove("active")
+	}
+ }
+
+ function activeTab(name) {
+ 	var class_to_add
+
+ 	removeActiveTab()
+
+	for (var i = 0; i<tab_names.length; i++) {
+		tab_names[i] === name ? class_to_add = "active" : class_to_add = "button_navbar"
+		document.getElementById(tab_names[i]).classList.add(class_to_add)
+	}
+}
